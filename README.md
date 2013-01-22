@@ -6,6 +6,10 @@ Features NOT implemented:
 * Quoted fields
 * Character encodings other than 8-bit, and utf-8
 
+## Installation
+Add to your Gemfile:
+  gem 'lwcsv', :git => 'https://github.com/moxley/lwcsv.git'
+
 ## Usage
 
   Lwcsv.foreach(filename_or_stream) do |row|
