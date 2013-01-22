@@ -4,7 +4,7 @@ Being written in C, it is quite fast.
 
 Features NOT implemented:
 * Quoted fields
-* Multibyte character encodings
+* Character encodings other than 8-bit, and utf-8
 
 ## Usage
 
