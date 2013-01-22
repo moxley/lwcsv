@@ -44,6 +44,7 @@ static VALUE stream_foreach(VALUE self, VALUE stream) {
   int idx;
   VALUE ary;
   VALUE rline;
+  VALUE rstring;
 
   if (!RTEST(rb_funcall(stream, rb_intern("respond_to?"), 1, rb_str_new2("readline")))) {
     rb_raise(rb_eRuntimeError, "Argument needs to respond to #readline");
@@ -64,7 +65,9 @@ static VALUE stream_foreach(VALUE self, VALUE stream) {
         rb_raise(rb_eRuntimeError, "Line is too long");
       }
       field_len = strlen(field_buf);
-      rb_ary_store(ary, idx, rb_str_new(field_buf, field_len));
+      rstring = rb_str_new(field_buf, field_len);
+      rb_funcall(rstring, rb_intern("encode!"), 2, rb_str_new2("UTF-8"), rb_str_new2("UTF-8"));
+      rb_ary_store(ary, idx, rstring);
       idx++;
     }
     rb_yield(ary);

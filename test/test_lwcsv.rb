@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'test/unit'
 require 'lwcsv'
 require 'stringio'
@@ -36,5 +38,17 @@ class LwcsvTest < Test::Unit::TestCase
     rescue RuntimeError => e
       assert_equal e.message, 'Argument needs to respond to #readline'
     end
+  end
+
+  def test_utf8
+    csv_string = 'foo,bar✓,baz'
+    stream = StringIO.new(csv_string)
+    expected = ['foo', 'bar✓', 'baz']
+    rows = []
+    Lwcsv.stream_foreach(stream) do |row|
+      rows << row
+    end
+    assert_equal Encoding::UTF_8, rows.first.first.encoding
+    assert_equal [expected], rows
   end
 end
