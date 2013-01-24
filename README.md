@@ -8,17 +8,20 @@ Features NOT implemented:
 
 ## Installation
 Add to your Gemfile:
-  gem 'lwcsv', :git => 'https://github.com/moxley/lwcsv.git'
+```
+gem 'lwcsv', :git => 'https://github.com/moxley/lwcsv.git'
+```
 
 ## Usage
-
-  Lwcsv.foreach(filename_or_stream) do |row|
-    rows << row
-  end
+```
+Lwcsv.foreach(filename_or_stream) do |row|
+  rows << row
+end
+```
 
 If given a stream, the object must provide the `#eof?` and `#getline` methods.
 
 ## Building
-
-  gem build lwcsv.gemspec && gem install lwcsv-1.0.0.gem && rake
-
+```
+gem build lwcsv.gemspec && gem install lwcsv-1.0.0.gem && rake
+```
