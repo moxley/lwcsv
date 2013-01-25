@@ -4,7 +4,7 @@ Being written in C, it is quite fast.
 
 Features NOT implemented:
 * Quoted fields
-* Character encodings other than 8-bit, and utf-8
+* Character encodings other than 8-bit or utf-8
 
 ## Installation
 Add to your Gemfile:
