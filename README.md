@@ -22,6 +22,9 @@ end
 If given a stream, the object must provide the `#eof?` and `#getline` methods.
 
 ## Building
+
+Only needed when making changes to the source.
+
 ```
 gem build lwcsv.gemspec && gem install lwcsv-1.0.0.gem && rake
 ```
